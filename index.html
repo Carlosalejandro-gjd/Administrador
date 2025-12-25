@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gestión Telegram - Tienda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-root">
+    <header class="top-bar">
+      <div class="field-group">
+        <label for="botToken">Token del bot</label>
+        <input id="botToken" type="password" placeholder="123456:ABC..." autocomplete="off" />
+      </div>
+      <button id="saveTokenBtn" class="btn primary">Guardar</button>
+    </header>
+
+    <section class="controls">
+      <div class="field-group small">
+        <label for="webhookUrl">URL Webhook</label>
+        <input id="webhookUrl" type="text" placeholder="https://tu-dominio.com/telegram-webhook" />
+      </div>
+      <div class="controls-row">
+        <button id="setWebhookBtn" class="btn">Configurar</button>
+        <button id="getWebhookInfoBtn" class="btn">Ver estado</button>
+        <button id="deleteWebhookBtn" class="btn danger">Quitar</button>
+      </div>
+      <div id="webhookStatus" class="status-line"></div>
+    </section>
+
+    <main class="main-layout">
+      <section class="messages-panel">
+        <div class="panel-header">
+          <span>Mensajes recibidos</span>
+          <div class="poll-indicator" id="pollIndicator"></div>
+        </div>
+        <div id="messagesList" class="messages-list"></div>
+      </section>
+
+      <section class="reply-panel">
+        <div class="field-group">
+          <label for="replyChatId">Chat ID</label>
+          <input id="replyChatId" type="text" placeholder="Selecciona un mensaje" />
+        </div>
+        <div class="field-group">
+          <label for="replyText">Responder</label>
+          <textarea id="replyText" rows="2" placeholder="Escribe tu mensaje..."></textarea>
+        </div>
+        <button id="sendReplyBtn" class="btn primary full-width">Enviar respuesta</button>
+        <div id="replyStatus" class="status-line"></div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
